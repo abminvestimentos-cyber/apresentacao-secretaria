@@ -1,418 +1,376 @@
-<div id="abm-presentation-container">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secretária Virtual Inteligente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        #abm-presentation-container {
+        body {
             font-family: 'Poppins', sans-serif;
             background-color: #f0f4f8;
             color: #1f2937;
-            max-width: 100%;
-            overflow-x: hidden;
-            box-sizing: border-box;
         }
-        #abm-presentation-container * {
-            box-sizing: border-box;
+        .text-shadow-custom {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
-        #abm-presentation-container .chart-container {
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 320px;
-            max-height: 400px;
+            height: 300px;
         }
         @media (min-width: 768px) {
-            #abm-presentation-container .chart-container {
+            .chart-container {
                 height: 400px;
             }
         }
-        #abm-presentation-container .gradient-text {
-            background: linear-gradient(90deg, #3f88c5, #f1a208);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        #abm-presentation-container .flow-arrow {
-            color: #f1a208;
-            font-size: 2rem;
-            line-height: 1;
-        }
-        #abm-presentation-container .chat-bubble {
+        .message-bubble {
             max-width: 80%;
-            padding: 1rem;
-            border-radius: 1rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 1.25rem;
+            padding: 0.75rem 1rem;
         }
-        #abm-presentation-container .incoming {
-            background-color: #e2e8f0;
-            margin-right: auto;
-            border-bottom-left-radius: 0.25rem;
+        .sent {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            text-align: right;
         }
-        #abm-presentation-container .profile-pic {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-        #abm-presentation-container .card-hover {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        #abm-presentation-container .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        .received {
+            background-color: #f0f0f0;
+            align-self: flex-start;
+            text-align: left;
         }
     </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
 
-    <header class="bg-[#1f2937] text-white text-center py-20 px-4 shadow-xl">
-        <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Secretária Virtual Inteligente</h1>
-        <p class="text-2xl md:text-3xl font-light">Transforme seu Atendimento ao Cliente. 24/7. Sem Esforço.</p>
-    </header>
+    <main class="max-w-6xl mx-auto py-8 px-4">
 
-    <main class="max-w-7xl mx-auto p-4 md:p-8">
-        <section id="problema" class="text-center my-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">O Atendimento Tradicional Custa Caro e é Lento</h2>
-            <p class="max-w-3xl mx-auto text-lg mb-8 text-gray-600">Empresas perdem clientes por demorarem a responder. A automação não é mais uma opção, é uma necessidade para crescer.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 card-hover">
-                    <p class="text-6xl md:text-7xl font-bold gradient-text">82%</p>
-                    <p class="text-xl mt-2 text-gray-700">dos consumidores esperam uma resposta imediata a uma pergunta de agendamento.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 card-hover">
-                    <p class="text-6xl md:text-7xl font-bold gradient-text">45%</p>
-                    <p class="text-xl mt-2 text-gray-700">dos clientes abandonam uma compra se não conseguem encontrar respostas rápidas.</p>
-                </div>
-            </div>
+        <section class="bg-gradient-to-br from-[#bc5090] to-[#ef5675] text-white rounded-3xl p-12 text-center shadow-lg mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-2 text-shadow-custom">Secretária Virtual Inteligente</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90">Automatize seu atendimento, reduza custos e foque no que realmente importa.</p>
         </section>
 
-        <section id="solucao" class="my-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Como Funciona a Nossa Solução</h2>
-            <div class="bg-white p-8 rounded-xl shadow-lg">
-                <p class="text-center text-lg text-gray-600 mb-10">Nossa plataforma centraliza e automatiza a comunicação, conectando seus canais de atendimento aos seus sistemas internos de forma inteligente e fluida.</p>
-                <div class="flex flex-col md:flex-row items-center justify-around space-y-8 md:space-y-0 md:space-x-4">
-                    <div class="text-center">
-                        <p class="text-5xl mb-2">📥</p>
-                        <h3 class="text-xl font-semibold">Canais de Entrada</h3>
-                        <p class="text-gray-500">WhatsApp, e-mail e redes sociais</p>
-                    </div>
-                    <div class="flow-arrow hidden md:block"></div>
-                    <div class="transform rotate-90 md:hidden flow-arrow"></div>
-                    <div class="text-center p-6 border-2 border-dashed border-[#f1a208] rounded-lg">
-                        <p class="text-5xl mb-2">🤖</p>
-                        <h3 class="text-xl font-semibold text-[#f1a208]">Secretária Virtual ABM</h3>
-                        <p class="text-gray-500">Processa e direciona</p>
-                    </div>
-                    <div class="flow-arrow hidden md:block"></div>
-                    <div class="transform rotate-90 md:hidden flow-arrow"></div>
-                    <div class="text-center">
-                        <p class="text-5xl mb-2">⚙️</p>
-                        <h3 class="text-xl font-semibold">Sistemas Integrados</h3>
-                        <p class="text-gray-500">sistemas google</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="planos" class="my-20 bg-gray-100 p-8 rounded-xl shadow-lg text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Escolha o Plano Ideal para Você</h2>
-            <p class="max-w-3xl mx-auto text-lg mb-8 text-gray-600">Comece a automatizar seu atendimento com o plano que mais se encaixa na sua necessidade e orçamento.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center card-hover">
-                    <h3 class="text-2xl font-bold mb-4">Plano Mensal</h3>
-                    <p class="text-5xl font-bold text-[#3f88c5]">R$ 399,00</p>
-                    <p class="text-lg text-gray-600 mb-6">por mês</p>
-                    <a href="https://wa.me/55(00)90000-0000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Mensal%20de%20R%24%20399%2C00." class="mt-auto w-full bg-[#17a99f] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105" target="_blank">Assinar</a>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center border-4 border-[#f1a208] relative card-hover">
-                    <span class="absolute top-0 right-0 bg-[#f1a208] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">15% OFF</span>
-                    <h3 class="text-2xl font-bold mb-4">Plano Semestral</h3>
-                    <p class="text-5xl font-bold text-[#3f88c5]">R$ 339,15</p>
-                    <p class="text-lg text-gray-600 mb-2">por mês</p>
-                    <p class="text-sm text-gray-500">Total: R$ 2.034,90</p>
-                    <a href="https://wa.me/55(00)90000-0000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Semestral%20de%20R%24%202.034%2C90." class="mt-auto w-full bg-[#17a99f] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105" target="_blank">Assinar</a>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center relative card-hover">
-                    <span class="absolute top-0 right-0 bg-[#eb5e52] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">25% OFF</span>
-                    <h3 class="text-2xl font-bold mb-4">Plano Anual</h3>
-                    <p class="text-5xl font-bold text-[#3f88c5]">R$ 299,25</p>
-                    <p class="text-lg text-gray-600 mb-2">por mês</p>
-                    <p class="text-sm text-gray-500">Total: R$ 3.591,00</p>
-                    <a href="https://wa.me/55(00)90000-0000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Anual%20de%24%203.591%2C00." class="mt-auto w-full bg-[#17a99f] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105" target="_blank">Assinar</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="planos-conciliacao" class="my-20 bg-gray-100 p-8 rounded-xl shadow-lg text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Planos de Serviço com Conciliação Financeira e Fiscal</h2>
-            <p class="max-w-3xl mx-auto text-lg mb-8 text-gray-600">
-                Para profissionais que necessitam de uma solução completa que vai além da automação, com o suporte de uma equipe profissional e humana para as áreas financeira e fiscal do seu negócio.
+        <section id="traditional-cost" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#003f5c]">O atendimento tradicional custa caro e é lento</h2>
+            <p class="text-lg text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+                Uma secretária física consome tempo e recursos preciosos. Nossa solução oferece uma alternativa ágil e eficiente, economizando até 70% em despesas operacionais.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center card-hover">
-                    <h3 class="text-2xl font-bold mb-4">Plano Mensal</h3>
-                    <p class="text-5xl font-bold text-[#3f88c5]">R$ 599,00</p>
-                    <p class="text-lg text-gray-600 mb-6">por mês</p>
-                    <a href="https://wa.me/55(00)90000-0000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20de%20Concilia%C3%A7%C3%A3o%20Mensal%20de%20R%24%20599%2C00." class="mt-auto w-full bg-[#17a99f] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105" target="_blank">Assinar</a>
+            <div class="grid md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <div class="text-5xl font-bold text-[#bc5090] mb-2">💸</div>
+                    <p class="text-xl font-semibold text-gray-700">Custos Elevados</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center border-4 border-[#f1a208] relative card-hover">
-                    <span class="absolute top-0 right-0 bg-[#f1a208] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">15% OFF</span>
-                    <h3 class="text-2xl font-bold mb-4">Plano Semestral</h3>
-                    <p class="text-5xl font-bold text-[#3f88c5]">R$ 509,15</p>
-                    <p class="text-lg text-gray-600 mb-2">por mês</p>
-                    <p class="text-sm text-gray-500">Total: R$ 3.054,90</p>
-                    <a href="https://wa.me/55(00)90000-0000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20de%20Concilia%C3%A7%C3%A3o%20Semestral%20de%20R%24%203.054%2C90." class="mt-auto w-full bg-[#17a99f] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105" target="_blank">Assinar</a>
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <div class="text-5xl font-bold text-[#ef5675] mb-2">⏳</div>
+                    <p class="text-xl font-semibold text-gray-700">Atendimento Lento</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center relative card-hover">
-                    <span class="absolute top-0 right-0 bg-[#eb5e52] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">25% OFF</span>
-                    <h3 class="text-2xl font-bold mb-4">Plano Anual</h3>
-                    <p class="text-5xl font-bold text-[#3f88c5]">R$ 449,25</p>
-                    <p class="text-lg text-gray-600 mb-2">por mês</p>
-                    <p class="text-sm text-gray-500">Total: R$ 5.391,00</p>
-                    <a href="https://wa.me/55(00)90000-0000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20de%20Concilia%C3%A7%C3%A3o%20Anual%20de%20R%24%205.391%2C00." class="mt-auto w-full bg-[#17a99f] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105" target="_blank">Assinar</a>
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <div class="text-5xl font-bold text-[#ffa600] mb-2">❌</div>
+                    <p class="text-xl font-semibold text-gray-700">Falta de Integração</p>
                 </div>
             </div>
         </section>
 
-        <section id="vantagens" class="my-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Vantagens que Impulsionam seu Negócio</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
-                    <p class="text-5xl mb-4">🕒</p>
-                    <h3 class="text-xl font-bold mb-2">Atendimento 24/7</h3>
-                    <p class="text-gray-600">Sua empresa nunca fecha. Capte leads e atenda clientes a qualquer hora do dia.</p>
+        <section id="solution-work" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#003f5c]">Como funciona a nossa solução</h2>
+            <p class="text-lg text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+                Nossa Secretária Virtual Inteligente, desenvolvida pela ABM - Consultoria em Investimentos Ltda, gerencia seu atendimento de forma rápida e eficiente. Ela automatiza respostas, direciona solicitações e integra-se aos seus canais de comunicação.
+            </p>
+            <div class="flex flex-col items-center gap-6 md:flex-row md:justify-center">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105 flex-1">
+                    <div class="text-4xl mb-2 text-[#bc5090]">💬</div>
+                    <p class="font-semibold text-gray-700">WhatsApp</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
-                    <p class="text-5xl mb-4">💰</p>
-                    <h3 class="text-xl font-bold mb-2">Redução de Custos</h3>
-                    <p class="text-gray-600">Diminua custos operacionais automatizando tarefas repetitivas e manuais.</p>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105 flex-1">
+                    <div class="text-4xl mb-2 text-[#ef5675]">📧</div>
+                    <p class="font-semibold text-gray-700">E-mail</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
-                    <p class="text-5xl mb-4">🔗</p>
-                    <h3 class="text-xl font-bold mb-2">Integração Total</h3>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105 flex-1">
+                    <div class="text-4xl mb-2 text-[#ffa600]">📱</div>
+                    <p class="font-semibold text-gray-700">Redes Sociais</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105 flex-1">
+                    <div class="text-4xl mb-2 text-[#58508d]">⚙️</div>
+                    <p class="font-semibold text-gray-700">Sistemas Google</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#003f5c]">Escolha o Plano Ideal para você</h2>
+            <p class="text-lg text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+                Nossos planos se adaptam às suas necessidades, oferecendo o melhor custo-benefício para a sua empresa. Escolha entre automação completa ou a solução que inclui conciliação financeira e fiscal.
+            </p>
+
+            <h3 class="text-2xl font-bold text-center mb-6 text-[#bc5090]">Planos de Automação</h3>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
+                    <p class="text-xl font-semibold mb-2 text-[#ef5675]">Plano Mensal</p>
+                    <p class="text-4xl font-bold text-[#003f5c] mb-2">R$ 399,00</p>
+                    <p class="text-lg text-gray-500 mb-4">/mês</p>
+                    <a href="https://wa.me/5562993249524?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20automa%C3%A7%C3%A3o%20da%20secret%C3%A1ria%20no%20Plano%20Mensal%20e%20se%20poss%C3%ADvel%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="inline-block mt-4 w-full bg-gradient-to-r from-[#bc5090] to-[#ef5675] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-shadow">Falar com Consultor</a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
+                    <p class="text-xl font-semibold mb-2 text-[#ef5675]">Plano Semestral</p>
+                    <p class="text-4xl font-bold text-[#003f5c] mb-2">R$ 339,15</p>
+                    <p class="text-lg text-gray-500 mb-4">/mês <span class="text-sm">(total R$ 2.034,90 - 15% OFF)</span></p>
+                    <a href="https://wa.me/5562993249524?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20automa%C3%A7%C3%A3o%20da%20secret%C3%A1ria%20no%20Plano%20Semestral%20e%20se%20poss%C3%ADvel%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="inline-block mt-4 w-full bg-gradient-to-r from-[#bc5090] to-[#ef5675] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-shadow">Falar com Consultor</a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
+                    <p class="text-xl font-semibold mb-2 text-[#ef5675]">Plano Anual</p>
+                    <p class="text-4xl font-bold text-[#003f5c] mb-2">R$ 299,25</p>
+                    <p class="text-lg text-gray-500 mb-4">/mês <span class="text-sm">(total R$ 3.591,00 - 25% OFF)</span></p>
+                    <a href="https://wa.me/5562993249524?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20automa%C3%A7%C3%A3o%20da%20secret%C3%A1ria%20no%20Plano%20Anual%20e%20se%20poss%C3%ADvel%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="inline-block mt-4 w-full bg-gradient-to-r from-[#bc5090] to-[#ef5675] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-shadow">Falar com Consultor</a>
+                </div>
+            </div>
+
+            <p class="text-lg text-center text-gray-600 mt-12 mb-8 max-w-3xl mx-auto">
+                Para quem busca uma solução ainda mais completa, que conta com atendimento humano e profissional.
+            </p>
+
+            <h3 class="text-2xl font-bold text-center mb-6 text-[#bc5090]">Planos com Conciliação Financeira e Fiscal</h3>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
+                    <p class="text-xl font-semibold mb-2 text-[#ef5675]">Plano Mensal</p>
+                    <p class="text-4xl font-bold text-[#003f5c] mb-2">R$ 599,00</p>
+                    <p class="text-lg text-gray-500 mb-4">/mês</p>
+                    <a href="https://wa.me/5562993249524?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Plano%20Mensal%20com%20Concilia%C3%A7%C3%A3o%20Financeira%20e%20Fiscal%20e%20se%20poss%C3%ADvel%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="inline-block mt-4 w-full bg-gradient-to-r from-[#bc5090] to-[#ef5675] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-shadow">Falar com Consultor</a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
+                    <p class="text-xl font-semibold mb-2 text-[#ef5675]">Plano Semestral</p>
+                    <p class="text-4xl font-bold text-[#003f5c] mb-2">R$ 509,15</p>
+                    <p class="text-lg text-gray-500 mb-4">/mês <span class="text-sm">(total R$ 3.054,90 - 15% OFF)</span></p>
+                    <a href="https://wa.me/5562993249524?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Plano%20Semestral%20com%20Concilia%C3%A7%C3%A3o%20Financeira%20e%20Fiscal%20e%20se%20poss%C3%ADvel%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="inline-block mt-4 w-full bg-gradient-to-r from-[#bc5090] to-[#ef5675] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-shadow">Falar com Consultor</a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
+                    <p class="text-xl font-semibold mb-2 text-[#ef5675]">Plano Anual</p>
+                    <p class="text-4xl font-bold text-[#003f5c] mb-2">R$ 449,25</p>
+                    <p class="text-lg text-gray-500 mb-4">/mês <span class="text-sm">(total R$ 5.391,00 - 25% OFF)</span></p>
+                    <a href="https://wa.me/5562993249524?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Plano%20Anual%20com%20Concilia%C3%A7%C3%A3o%20Financeira%20e%20Fiscal%20e%20se%20poss%C3%ADvel%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="inline-block mt-4 w-full bg-gradient-to-r from-[#bc5090] to-[#ef5675] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-shadow">Falar com Consultor</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="advantages" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#003f5c]">Vantagens que impulsionam seu negócio</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2 text-[#bc5090]">Atendimento Ágil 24/7</h3>
+                    <p class="text-gray-600">Sua secretária virtual atende seus clientes a qualquer hora do dia ou da noite, garantindo que você não perca nenhuma oportunidade de agendamento.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2 text-[#ef5675]">Redução de Custos</h3>
+                    <p class="text-gray-600">Reduza significativamente os custos com folha de pagamento, encargos sociais e espaço físico, focando seus recursos no crescimento do seu negócio.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2 text-[#ffa600]">Integração Total</h3>
                     <p class="text-gray-600">Conecte-se os Sistemas Google ao seu negócio sem atritos.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
-                    <p class="text-5xl mb-4">📈</p>
-                    <h3 class="text-xl font-bold mb-2">Organização e Controle</h3>
-                    <p class="text-gray-600">Monitore cada interação e garanta que nenhuma oportunidade ou chamado se perca.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
-                    <p class="text-5xl mb-4">🎨</p>
-                    <h3 class="text-xl font-bold mb-2">Atendimento Personalizado</h3>
-                    <p class="text-gray-600">Crie fluxos de conversa que se adaptam ao perfil do cliente, melhorando a experiência.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
-                    <p class="text-5xl mb-4">🤝</p>
-                    <h3 class="text-xl font-bold mb-2">Suporte Contínuo</h3>
-                    <p class="text-gray-600">Nossa equipe de especialistas está disponível 24h para garantir o sucesso da sua operação.</p>
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2 text-[#58508d]">Foco no Core Business</h3>
+                    <p class="text-gray-600">Deixe as tarefas de agendamento e atendimento por conta da Secretária Virtual e direcione seu foco e energia para o crescimento do seu negócio.</p>
                 </div>
             </div>
         </section>
 
-        <section id="setores-profissionais" class="my-20 p-8 rounded-xl shadow-lg bg-white text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Ideal para Diversos Segmentos Profissionais</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-700">
-                A Secretária Virtual Inteligente é uma solução flexível, desenhada para se adaptar e impulsionar a gestão de agendamentos em qualquer setor.
-            </p>
-            <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto">
-                <div class="flex flex-col items-center p-4 rounded-lg bg-gray-100 card-hover">
-                    <span class="text-3xl mb-2">🩺</span>
-                    <p class="text-sm font-semibold">Profissionais da saúde</p>
+        <section id="segments" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#003f5c]">Ideal para diversos segmentos profissionais</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-center">
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2 text-[#bc5090]">Saúde e Bem-Estar</h3>
+                    <p class="text-gray-600">Clínicas, consultórios, dentistas e fisioterapeutas.</p>
                 </div>
-                <div class="flex flex-col items-center p-4 rounded-lg bg-gray-100 card-hover">
-                    <span class="text-3xl mb-2">🏘️</span>
-                    <p class="text-sm font-semibold">Corretores de imóveis</p>
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2 text-[#ef5675]">Serviços Profissionais</h3>
+                    <p class="text-gray-600">Advogados, contadores e consultores.</p>
                 </div>
-                <div class="flex flex-col items-center p-4 rounded-lg bg-gray-100 card-hover">
-                    <span class="text-3xl mb-2">⚖️</span>
-                    <p class="text-sm font-semibold">Advogados</p>
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2 text-[#ffa600]">Estética e Beleza</h3>
+                    <p class="text-gray-600">Salão de beleza, barbearias e manicures.</p>
                 </div>
-                <div class="flex flex-col items-center p-4 rounded-lg bg-gray-100 card-hover">
-                    <span class="text-3xl mb-2">🐾</span>
-                    <p class="text-sm font-semibold">Serviços Pets</p>
-                </div>
-                <div class="flex flex-col items-center p-4 rounded-lg bg-gray-100 card-hover">
-                    <span class="text-3xl mb-2">💇‍♀️</span>
-                    <p class="text-sm font-semibold">Salão de beleza</p>
+                <div class="bg-white p-6 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2 text-[#58508d]">Outros Setores</h3>
+                    <p class="text-gray-600">Corretores de imóveis e serviços pets (banho e tosa).</p>
                 </div>
             </div>
         </section>
 
-        <section id="sucesso-clientes" class="my-20 bg-white p-8 rounded-xl shadow-lg text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Mais de 250 Empresas Conectadas</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-700">
-                Mais de 250 empresas de diversos setores já transformaram seus negócios com a Secretária Virtual Inteligente.
-                Nossa solução é o parceiro ideal para quem busca eficiência, inovação e um atendimento de excelência, com resultados comprovados e clientes satisfeitos.
-            </p>
+        <section id="credibility" class="mb-16 text-center max-w-3xl mx-auto">
+            <div class="bg-white p-8 rounded-xl shadow-md">
+                <p class="text-xl font-semibold mb-4 text-[#003f5c]">
+                    <span class="text-3xl font-bold text-[#bc5090]">Mais de 250 empresas</span> hoje contam com a solução apresentada por nós, validando a eficiência e o profissionalismo do nosso serviço.
+                </p>
+                <p class="text-gray-600">
+                    A ABM construiu uma base sólida de clientes satisfeitos, que confiam na nossa tecnologia para otimizar seus processos de atendimento e focar no crescimento do negócio.
+                </p>
+            </div>
         </section>
 
-        <section id="depoimentos" class="my-20 p-8 rounded-xl shadow-lg bg-white">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">A Voz dos Nossos Clientes</h2>
-            <div class="max-w-xl mx-auto">
-                <div class="flex items-start space-x-4 mb-6">
-                    <img src="https://i.pinimg.com/1200x/8c/a6/d1/8ca6d112eebcaa3f3489cbd7a1e32a80.jpg" alt="Foto de perfil de Ana" class="profile-pic">
-                    <div class="incoming chat-bubble">
-                        <p class="font-bold text-gray-900">Ana, Proprietária de Clínica</p>
-                        <p class="mt-1 text-gray-800">"Desde que implementamos a secretária, o agendamento de consultas ficou 100% mais eficiente! A satisfação dos pacientes aumentou muito."</p>
+        <section id="testimonials" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#003f5c]">A Voz dos Nossos Clientes</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-md">
+                    <img src="https://i.pinimg.com/736x/93/9f/1c/939f1c7037f0d49dc4f79e722ff5ffa9.jpg" alt="Foto de Marcos, gerente de loja" class="w-20 h-20 rounded-full mb-4">
+                    <p class="text-center italic text-gray-700 mb-2">"A Secretária Virtual da ABM transformou nosso atendimento. As remarcações e cancelamentos de agendamentos são feitos de forma automática. Conseguimos economizar tempo e direcionar nosso foco para o crescimento da nossa loja."</p>
+                    <p class="font-semibold text-[#bc5090]">- Marcos, Gerente de Loja</p>
+                </div>
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-md">
+                    <img src="https://i.pinimg.com/736x/a1/fd/11/a1fd11005856bbb2a0e70b80b853e3a6.jpg" alt="Foto de Fernanda, dentista" class="w-20 h-20 rounded-full mb-4">
+                    <p class="text-center italic text-gray-700 mb-2">"A automação da ABM nos ajudou a reduzir o tempo gasto com agendamentos em mais de 50%. A comunicação com os pacientes ficou mais fluida e profissional. Indico para todos!"</p>
+                    <p class="font-semibold text-[#bc5090]">- Fernanda, Dentista</p>
+                </div>
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-md">
+                    <img src="https://i.pinimg.com/1200x/8c/a6/d1/8ca6d112eebcaa3f3489cbd7a1e32a80.jpg" alt="Foto de Ana, gerente de clínica" class="w-20 h-20 rounded-full mb-4">
+                    <p class="text-center italic text-gray-700 mb-2">"A integração com nosso sistema de e-mail foi essencial. Nenhuma solicitação de agendamento fica sem resposta, e os pacientes são atendidos 24 horas por dia, 7 dias por semana."</p>
+                    <p class="font-semibold text-[#bc5090]">- Ana, Gerente de Clínica</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="automation-impact" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#003f5c]">O impacto da automação em números</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
+                <div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-2xl font-bold mb-4 text-[#bc5090]">Aumento da Produtividade</h3>
+                        <div class="chart-container">
+                            <canvas id="productivityChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-4 text-center">Aumento de até 80% na capacidade de agendamentos e atendimento por mês.</p>
                     </div>
                 </div>
-                <div class="flex items-start space-x-4 mb-6">
-                    <img src="https://i.pinimg.com/736x/93/9f/1c/939f1c7037f0d49dc4f79e722ff5ffa9.jpg" alt="Foto de perfil de Marcos" class="profile-pic">
-                    <div class="incoming chat-bubble">
-                        <p class="font-bold text-gray-900">Marcos, Gerente de Loja</p>
-                        <p class="mt-1 text-gray-800">"Conseguimos responder a todos os clientes no WhatsApp, mesmo fora do horário comercial. Não perdemos mais nenhuma oportunidade!"</p>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4">
-                    <img src="https://i.pinimg.com/736x/a1/fd/11/a1fd11005856bbb2a0e70b80b853e3a6.jpg" alt="Foto de perfil de Fernanda" class="profile-pic">
-                    <div class="incoming chat-bubble">
-                        <p class="font-bold text-gray-900">Fernanda, Consultora</p>
-                        <p class="mt-1 text-gray-800">"A integração com o Google Agenda é um divisor de águas. Meus agendamentos agora são automáticos e perfeitos."</p>
+                <div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-2xl font-bold mb-4 text-[#ef5675]">Redução de Custos Operacionais</h3>
+                        <div class="chart-container">
+                            <canvas id="costChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="font-bold text-[#003f5c]">Gastos anuais com folha de pagamento</p>
+                            <div class="flex justify-center items-center mt-2">
+                                <div class="w-4 h-4 rounded-full mr-2" style="background-color: #58508d;"></div>
+                                <p class="text-gray-700">Com Secretária Tradicional: 60%</p>
+                            </div>
+                            <div class="flex justify-center items-center mt-1">
+                                <div class="w-4 h-4 rounded-full mr-2" style="background-color: #ffa600;"></div>
+                                <p class="text-gray-700">Com Secretária Virtual: 40%</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="impacto" class="my-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">O Impacto da Automação em Números</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-bold text-center mb-4">Redução Drástica no Tempo de Resposta</h3>
-                    <p class="text-center text-gray-600 mb-6">Veja a diferença que a automação faz. Respostas que levavam horas agora são instantâneas, aumentando a satisfação e a eficiência nos agendamentos.</p>
-                    <div class="chart-container">
-                        <canvas id="tempoRespostaChart"></canvas>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-bold text-center mb-4">Redução de Custos Operacionais</h3>
-                    <p class="text-center text-gray-600 mb-6">Ao automatizar o primeiro nível de atendimento, sua equipe pode focar em tarefas estratégicas, gerando uma economia significativa.</p>
-                    <div class="chart-container">
-                        <canvas id="custosChart"></canvas>
-                    </div>
-                    <div class="flex justify-center mt-6 space-x-8 text-xl font-bold">
-                        <p class="flex items-center text-[#003f5c]">
-                            <span class="inline-block w-4 h-4 rounded-full mr-2 bg-[#003f5c]"></span> 65%
-                        </p>
-                        <p class="flex items-center text-[#ffa600]">
-                            <span class="inline-block w-4 h-4 rounded-full mr-2 bg-[#ffa600]"></span> 35%
-                        </p>
-                    </div>
-                </div>
+        
+        <section id="contact" class="bg-gradient-to-br from-[#bc5090] to-[#ef5675] text-white p-12 rounded-xl text-center shadow-lg">
+            <h2 class="text-3xl font-bold mb-4 text-shadow-custom">Pronto para automatizar seu atendimento?</h2>
+            <p class="text-xl mb-6 font-light opacity-90">Entre em contato e descubra como a Secretária Virtual Inteligente pode transformar o seu negócio.</p>
+            <a href="https://wa.me/5562993249524?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20da%20secret%C3%A1ria." class="inline-block bg-white text-[#ef5675] font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105">Agendar Demonstração</a>
+            <div class="mt-6">
+                <p class="font-light">Também disponível por:</p>
+                <p class="font-bold">Telefone: (62) 99324-9524</p>
+                <p class="font-bold">Email: abm.investimentos@gmail.com</p>
             </div>
         </section>
 
-        <section id="contato" class="my-16 bg-[#1f2937] text-white rounded-xl shadow-2xl p-12 text-center">
-            <h2 class="text-4xl font-bold mb-4">Pronto para Automatizar seu Atendimento?</h2>
-            <p class="text-xl mb-8 font-light">Entre em contato hoje mesmo para uma demonstração personalizada e gratuita.</p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-lg">
-                <p><strong>Email:</strong> contato@seudominio.com</p>
-                <p><strong>WhatsApp:</strong> (00) 90000-0000</p>
-            </div>
-            <a href="mailto:contato@seudominio.com" class="mt-10 inline-block bg-[#17a99f] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105">
-                Solicitar Demonstração
-            </a>
-        </section>
-
-    <footer class="text-center p-4 text-gray-500">
-        <p>&copy; 2025 Secretária Virtual Inteligente. Todos os direitos reservados.</p>
-    </footer>
+    </main>
 
     <script>
-        const tooltipTitleCallback = {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        title: function(tooltipItems) {
-                            const item = tooltipItems[0];
-                            let label = item.chart.data.labels[item.dataIndex];
-                            if (Array.isArray(label)) {
-                                return label.join(' ');
-                            } else {
-                                return label;
-                            }
-                        }
-                    }
-                }
-            }
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            const productivityCtx = document.getElementById('productivityChart').getContext('2d');
+            const costCtx = document.getElementById('costChart').getContext('2d');
 
-        const tempoRespostaCtx = document.getElementById('tempoRespostaChart').getContext('2d');
-        new Chart(tempoRespostaCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Atendimento Manual', 'Com Secretária Virtual'],
-                datasets: [{
-                    label: 'Tempo de Resposta (em minutos)',
-                    data: [120, 1],
-                    backgroundColor: ['#3f88c5', '#f1a208'],
-                    borderColor: ['#3f88c5', '#f1a208'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                ...tooltipTitleCallback,
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: 'y',
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Minutos'
-                        }
-                    }
+            const productivityChart = new Chart(productivityCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                    datasets: [{
+                        label: 'Atendimento Tradicional',
+                        data: [120, 130, 145, 150, 155, 160],
+                        backgroundColor: '#ef5675',
+                        borderRadius: 5
+                    }, {
+                        label: 'Atendimento com Automação',
+                        data: [200, 220, 240, 250, 260, 280],
+                        backgroundColor: '#bc5090',
+                        borderRadius: 5
+                    }]
                 },
-                plugins: {
-                    ...tooltipTitleCallback.plugins,
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-
-        const custosCtx = document.getElementById('custosChart').getContext('2d');
-        new Chart(custosCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Custos Manuais', 'Economia com Automação'],
-                datasets: [{
-                    label: 'Distribuição de Custos',
-                    data: [65, 35],
-                    backgroundColor: ['#3f88c5', '#17a99f'],
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                ...tooltipTitleCallback,
-                responsive: true,
-                maintainAspectRatio: false,
-                 plugins: {
-                    ...tooltipTitleCallback.plugins,
-                    legend: {
-                        position: 'top',
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     },
-                    tooltip: {
-                        ...tooltipTitleCallback.plugins.tooltip,
-                        callbacks: {
-                            ...tooltipTitleCallback.plugins.tooltip.callbacks,
-                            label: function(context) {
-                                let label = context.label || '';
-                                if (label) {
-                                    label += ': ';
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                        return label.join(' ');
+                                    } else {
+                                        return label;
+                                    }
                                 }
-                                if (context.parsed !== null) {
-                                    label += context.parsed + '%';
-                                }
-                                return label;
                             }
                         }
                     }
                 }
-            }
+            });
+
+            const costChart = new Chart(costCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Secretária Tradicional', 'Secretária Virtual'],
+                    datasets: [{
+                        data: [60, 40],
+                        backgroundColor: ['#58508d', '#ffa600']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                        return label.join(' ');
+                                    } else {
+                                        return label;
+                                    }
+                                },
+                                label: function(tooltipItem) {
+                                    let label = tooltipItem.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += tooltipItem.raw + '%';
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         });
     </script>
-</div>
-
+</body>
+</html>
+```
